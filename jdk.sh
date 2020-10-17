@@ -16,8 +16,8 @@ export PATH=/opt/java/jdk/bin:/opt/java/jdk/bin:/bin:/usr/local/sbin:/usr/local/
 source /etc/profile
 echo -e "\033[36m jdk ready! \033[0m \033[31m :) \033[0m"
 else
-echo "jdk ok!"
+echo -e "\033[31m jdk ok! \033[0m"
 fi
 else
-echo "jdk not ready!"
+echo -e "\033[31m jdk not ready! \033[0m"
 fi
