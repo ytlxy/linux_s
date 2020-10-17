@@ -1,14 +1,23 @@
 #!/bin/bash
-cd /opt
+jdk_version="221"
+if [ -f "/root/jdk-8u${jdk_version}-linux-x64.tar.gz" ];
+then
+if [ ! -d "/opt/java/jdk" ];
+then
 mkdir /opt/java
-cd
-tar -zxvf jdk-8u221-linux-x64.tar.gz
-mv jdk1.8.0_221 /opt/java
-cd /opt/java
-mv jdk1.8.0_221 jdk
-cd
-echo "export JAVA_HOME=/opt/java/jdk
-export JRE_HOME=${JAVA_HOME}/jre
-export CLASSPATH=.:${JAVA_HOME}/lib:${JRE_HOME}/lib
-export PATH=${JAVA_HOME}/bin:$PATH" >> /etc/profile
+tar -zxvf jdk-8u${jdk_version}-linux-x64.tar.gz -C /opt/java
+mv /opt/java/jdk1.8.0_${jdk_version} /opt/java/jdk
+echo "
+export JAVA_HOME=/opt/java/jdk
+export JRE_HOME=/opt/java/jdk/jre
+export CLASSPATH=.:/opt/java/jdk/lib:/opt/java/jdk/jre/lib
+export PATH=/opt/java/jdk/bin:/opt/java/jdk/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
+" >> /etc/profile
 source /etc/profile
+echo -e "\033[36m jdk ready! \033[0m \033[31m :) \033[0m"
+else
+echo "jdk ok!"
+fi
+else
+echo "jdk not ready!"
+fi
