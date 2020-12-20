@@ -14,7 +14,7 @@ export CLASSPATH=.:/opt/java/jdk/lib:/opt/java/jdk/jre/lib
 export PATH=/opt/java/jdk/bin:/opt/java/jdk/bin:/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/root/bin
 " >> /etc/profile
 source /etc/profile
-echo -e "\033[36m jdk ready! \033[0m \033[31m :) \033[0m"
+echo -e "\033[36m jdk ready! \033[0m \033[31m :) \033[0m not success run source /etc/profile"
 else
 echo -e "\033[31m jdk ok! \033[0m"
 fi
